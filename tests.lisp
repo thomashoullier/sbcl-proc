@@ -7,3 +7,7 @@
 (princ "plot sin(x)" (sb-ext:process-input *gp-proc*))
 (princ #\Newline (sb-ext:process-input *gp-proc*))
 (finish-output (sb-ext:process-input *gp-proc*))
+
+(sleep 1)
+(close-proc *gp-proc*)
+

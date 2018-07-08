@@ -10,3 +10,10 @@ arg : Flags provided to the program. As one string."
                       :output :stream
                       :wait nil
                       :search T))
+
+(defun close-proc (proc)
+  "Closes a process. Returns the exit code."
+  (sb-ext:process-kill proc 15 :pid)
+  (sb-ext:process-wait proc)
+  (sb-ext:process-close proc)
+  (sb-ext:process-exit-code proc))
