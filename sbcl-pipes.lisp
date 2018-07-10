@@ -19,6 +19,12 @@ arg : Flags provided to the program. As one string."
   (sb-ext:process-exit-code proc))
 
 (defun print-proc (proc str)
-"Prints the string 'str' to process 'proc'"
+"Inputs the string 'str' to process 'proc'"
   (princ str (sb-ext:process-input proc))
   (princ #\Newline (sb-ext:process-input proc)))
+
+(defun print-proc-lstr (proc lstr)
+  "Inputs the strings in the list 'lstr' to process 'proc'.
+   Inputs each string one at a time with a newline in between each."
+  (dotimes (it (list-length lstr) t)
+    (print-proc proc (elt lstr it))))
