@@ -17,3 +17,8 @@ arg : Flags provided to the program. As one string."
   (sb-ext:process-wait proc)
   (sb-ext:process-close proc)
   (sb-ext:process-exit-code proc))
+
+(defun print-proc (proc str)
+"Prints the string 'str' to process 'proc'"
+  (princ str (sb-ext:process-input proc))
+  (princ #\Newline (sb-ext:process-input proc)))
