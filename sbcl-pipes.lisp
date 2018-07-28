@@ -1,5 +1,11 @@
 ;;;; Wrapping some of the SBCL particular functions to deal broadly with piping to external programs.
 
+
+;; (defpackage :msb-proc
+;;   (:documentation "Small library to manage external processes in SBCL.")
+;;   (:use :cl)
+;;   (:export #:run-prog))
+
 (defun run-prog (name &optional (arg nil))
   "Wraps around sb-ext:run-program mainly to avoid manually setting streams each
  time. Returns the process outputted by sb-ext:run-program.
