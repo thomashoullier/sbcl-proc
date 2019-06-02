@@ -8,7 +8,7 @@ external programs with SBCL.
 ## Usage
 Let us launch a `gnuplot` process and pipe it some commands so as to produce
 a graph. From `tests.lisp`:
-```{common-lisp}
+```common-lisp
 (defparameter *gp-proc* (sb-proc:run-prog "gnuplot" "-persist"))
 (sb-proc:print-proc-lstr *gp-proc* '("plot sin(x)" "set grid"))
 (finish-output (sb-ext:process-input *gp-proc*))
