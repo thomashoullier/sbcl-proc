@@ -16,5 +16,8 @@ a graph. From `tests.lisp`:
 (sb-proc:close-proc *gp-proc*)
 ```
 A window should open with a plot of a sinus.
+## Test
+Known to work in Linux 5.1.6_1 and SBCL 1.5.3.
+Apart from that, be careful as this wrapper is very crude.
 ## References
   * http://www.sbcl.org/manual/#Running-external-programs
