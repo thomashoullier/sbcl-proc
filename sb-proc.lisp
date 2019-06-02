@@ -1,6 +1,7 @@
-;;;; Wrapping some of the SBCL particular functions to deal broadly with piping to external programs.
+;;;; Wrapping some of the SBCL particular functions to deal broadly with
+;;;; starting, stopping and piping to external programs.
 
-(in-package :msb-proc)
+(in-package :sb-proc)
 
 (defun run-prog (name &optional (arg nil))
   "Wraps around sb-ext:run-program mainly to avoid manually setting streams each
