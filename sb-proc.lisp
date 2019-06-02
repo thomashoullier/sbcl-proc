@@ -4,15 +4,13 @@
 (in-package :sb-proc)
 
 (defun run-prog (name &optional (arg nil))
-  "Wrap around sb-ext:run-program mainly to avoid manually setting streams each
-time. Returns the process outputted by sb-ext:run-program.
+  "Wrapper around sb-ext:run-program mainly to avoid manually setting streams 
+each time. Returns the process outputted by sb-ext:run-program.
 name : Program name, as a string. Eg. 'gnuplot'. Search is done in the $PATH
 arg : Flags provided to the program. As one string."
   (sb-ext:run-program name (list arg)
-                      :input :stream
-                      :output :stream
-                      :wait nil
-                      :search T))
+                      :input :stream :output :stream
+                      :wait nil :search T))
 
 (defun close-proc (proc)
   "Close a process. Returns the exit code."
@@ -22,7 +20,7 @@ arg : Flags provided to the program. As one string."
   (sb-ext:process-exit-code proc))
 
 (defun print-proc (proc str)
-"Pipe the string 'str' to process 'proc'"
+  "Pipe the string 'str' to process 'proc'"
   (princ str (sb-ext:process-input proc))
   (princ #\Newline (sb-ext:process-input proc)))
 
